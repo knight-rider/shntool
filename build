@@ -1,2 +1,3 @@
+autoconf
 configure --with-modes=len,fix,hash,pad,join,split,cat,cmp,cue,conv,info,strip,gen,trim --with-formats=wav,aiff,shn,flac,ape,alac,tak,ofr,tta,als,wv,lpac,la,mkw,bonk,kxs,cust,term,null --prefix=/usr/ CFLAGS=-Werror
 make
