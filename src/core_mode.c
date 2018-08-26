@@ -1443,22 +1443,22 @@ void reorder_files(wave_info **files,int numfiles)
   }
 }
 
+static char *filename1 = NULL;
+
 static void prog_print_data(progress_info *proginfo)
 {
-  if (proginfo->prefix) {
-    st_info("%s ",proginfo->prefix);
-  }
-
-  if (proginfo->filename1) {
-    st_info("[%s] ",proginfo->filename1);
-    if (proginfo->filedesc1) {
-      st_info("(%s) ",proginfo->filedesc1);
-    }
-  }
-
-  if (proginfo->clause) {
-    st_info("%s ",proginfo->clause);
-  }
+	if (filename1 != proginfo->filename1) {
+		if (proginfo->prefix)
+			st_info("%s ",proginfo->prefix);
+		if (proginfo->filename1) {
+			st_info("[%s] ",proginfo->filename1);
+			if (proginfo->filedesc1)
+				st_info("(%s) ",proginfo->filedesc1);
+		}
+		if (proginfo->clause)
+			st_info("%s\n",proginfo->clause);
+		filename1 = proginfo->filename1;
+	}
 
   if (proginfo->filename2) {
     st_info("[%s] ",proginfo->filename2);
