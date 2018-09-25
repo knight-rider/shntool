@@ -1444,7 +1444,6 @@ void reorder_files(wave_info **files,int numfiles)
 }
 
 static char *filename1 = NULL;
-
 static void prog_print_data(progress_info *proginfo)
 {
 	if (filename1 != proginfo->filename1) {
@@ -1462,12 +1461,9 @@ static void prog_print_data(progress_info *proginfo)
 
   if (proginfo->filename2) {
     st_info("[%s] ",proginfo->filename2);
-    if (proginfo->filedesc2) {
+    if (proginfo->filedesc2)
       st_info("(%s) ",proginfo->filedesc2);
-    }
   }
-
-  st_info(": ");
 }
 
 static void prog_init(progress_info *proginfo)
